@@ -1,5 +1,7 @@
 #
-# Icinga2 Dockerfile (depend on apache2 image)
+# Icinga2 Dockerfile (depends on apache2 image)
+#
+# For documentation about icinga2, see http://docs.icinga.org/icinga2/snapshot
 #
 # Pull base image
 FROM waja/debian_apache2:wheezy
