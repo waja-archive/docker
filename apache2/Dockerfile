@@ -1,7 +1,7 @@
 #
 # apache2 Dockerfile
 #
-# Pull base image
+# Pull base image (this is a stock stable image right from debootstrap)
 FROM waja/debian:latest
 
 # Predefine ENV
