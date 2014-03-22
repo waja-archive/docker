@@ -15,9 +15,9 @@ RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norec
 
 # Install sshd and supervisor
 RUN apt-get install --no-install-recommends -y openssh-server supervisor;\
+ mkdir -p /var/run;\
  mkdir -p /var/run/sshd;\
- mkdir -p /var/run/supervisord;\
- mkdir -p /var/log/supervisord
+ mkdir -p /var/log/supervisor
 # set root password
 RUN echo "root:$PREDEF_WEB_PW" | chpasswd
 
