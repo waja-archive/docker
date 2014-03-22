@@ -31,7 +31,7 @@ RUN apt-get install --no-install-recommends -y apache2
 EXPOSE 80
 
 # Copy in supervisor config files
-ADD supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD supervisord/ /etc/supervisor/conf.d/
 
 # start supervisord to maintain system services
 CMD ["/usr/bin/supervisord"]
