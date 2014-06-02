@@ -38,8 +38,7 @@ RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2
 RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop
 
 # enable icinga feature
-RUN icinga2-enable-feature perfdata;\
- icinga2-enable-feature syslog
+RUN icinga2-enable-feature perfdata syslog
 
 # Copy in supervisor config files
 ADD supervisord/ /etc/supervisor/conf.d/
