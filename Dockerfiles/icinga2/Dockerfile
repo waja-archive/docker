@@ -32,7 +32,9 @@ RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB
  echo "icinga2-classicui icinga2-classicui/adminpassword-repeat password $PREDEF_WEB_PW" | debconf-set-selections
 
 # package installation
-RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2
+RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2;\
+ apt-get install -y -t wheezy-backports nagios-plugins-basic;\
+ apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard dnsutils
 
 # start init script to get environment initialised
 RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop
