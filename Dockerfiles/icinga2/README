@@ -1,0 +1,7 @@
+To start the icinga2 container, run:
+
+# docker run -i -rm -t waja/debian_icinga2:wheezy
+
+This image has a conf.d directory which is intended to get exported into /etc/icinga2/conf.d/docker/ inside the container:
+
+# docker run -i -rm -t waja/debian_icinga2:wheezy -v $(pwd)/conf.d:/etc/icinga2/conf.d/docker/ 

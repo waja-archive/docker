@@ -1,0 +1,13 @@
+Dockerfiles (http://docs.docker.io/en/latest/reference/builder/) for creating Docker container (https://www.docker.io/)
+
+To generate the base image 'waja/debian:latest', just run:
+
+# mkimage-debootstrap.sh waja/debian wheezy http://cdn.debian.net/debian/
+
+If you want to build the apache2 container for example, run:
+
+# docker build -t waja/debian_apache2:wheezy apache2/
+
+To start the apache2 container for example, run:
+
+# docker run -i -rm -t waja/debian_apache2:wheezy
