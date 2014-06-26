@@ -13,10 +13,10 @@ ENV PREDEF_WEB_PW f00b4r
 MAINTAINER Jan Wagner "waja@cyconet.org"
 
 # configure needed package sources
-RUN echo "deb http://packages.icinga.org/debian icinga-wheezy main" > /etc/apt/sources.list.d/icinga-wheezy.list;\
+RUN echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon-wheezy.list;\
  echo "deb http://cdn.debian.net/debian/ wheezy-backports main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports.list;\
  apt-get install --no-install-recommends -y wget;\
- wget -O - http://packages.icinga.org/icinga.key | apt-key add -;\
+ wget -O - http://debmon.org/debmon/repo.key | apt-key add -;\
  apt-get update;\
  apt-get -y upgrade
 
