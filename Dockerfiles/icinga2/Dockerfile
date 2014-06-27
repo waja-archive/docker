@@ -33,12 +33,17 @@ RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB
 
 # package installation
 RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2;\
+# nagios plugins from debian
  apt-get install -y -t wheezy-backports nagios-plugins-basic;\
  apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard nagios-snmp-plugins;\
 # install dependencies for nagios-plugins-standard
  apt-get install -y -t wheezy-backports --no-install-recommends  dnsutils snmp;\
 # install dependencies for nagios-snmp-plugins
- apt-get install -y -t wheezy-backports --no-install-recommends netbase
+ apt-get install -y -t wheezy-backports --no-install-recommends netbase;\
+# (unofficial) monitoring-plugins-cyconet
+ echo "deb     http://ftp.cyconet.org/debian restricted     main non-free contrib" > /etc/apt/sources.list.d/restricted-cyconet.list;\
+ apt-get update;\
+ apt-get install -y --force-yes --no-install-recommends monitoring-plugins-cyconet
 
 
 # start init script to get environment initialised
