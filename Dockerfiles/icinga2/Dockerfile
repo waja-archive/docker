@@ -34,9 +34,12 @@ RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB
 # package installation
 RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2;\
  apt-get install -y -t wheezy-backports nagios-plugins-basic;\
- apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard;\
+ apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard nagios-snmp-plugins;\
 # install dependencies for nagios-plugins-standard
- apt-get install -y -t wheezy-backports --no-install-recommends  dnsutils snmp
+ apt-get install -y -t wheezy-backports --no-install-recommends  dnsutils snmp;\
+# install dependencies for nagios-snmp-plugins
+ apt-get install -y -t wheezy-backports --no-install-recommends netbase
+
 
 # start init script to get environment initialised
 RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop
