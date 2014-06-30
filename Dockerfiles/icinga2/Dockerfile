@@ -40,6 +40,8 @@ RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2;\
  apt-get install -y -t wheezy-backports --no-install-recommends  dnsutils snmp libmysqlclient18;\
 # install dependencies for nagios-snmp-plugins
  apt-get install -y -t wheezy-backports --no-install-recommends netbase;\
+# install dependencies for nagios-plugins-contrib
+ apt-get install -y -t wheezy-backports --no-install-recommends libnagios-plugin-perl liblwp-useragent-determined-perl;\
 # (unofficial) monitoring-plugins-cyconet
  echo "deb     http://ftp.cyconet.org/debian restricted     main non-free contrib" > /etc/apt/sources.list.d/restricted-cyconet.list;\
  apt-get update;\
