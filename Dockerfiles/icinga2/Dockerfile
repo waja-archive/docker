@@ -59,3 +59,5 @@ ADD supervisord/ /etc/supervisor/conf.d/
 
 # start supervisord to maintain system services
 CMD ["/usr/bin/supervisord"]
+
+# maybe looking into www.monitoring-portal.org/wbb/index.php?page=Thread&postID=205604#post205604 for trying icinga-web2
