@@ -37,7 +37,7 @@ RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2;\
  apt-get install -y -t wheezy-backports nagios-plugins-basic;\
  apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard nagios-snmp-plugins;\
 # install dependencies for nagios-plugins-standard
- apt-get install -y -t wheezy-backports --no-install-recommends  dnsutils snmp;\
+ apt-get install -y -t wheezy-backports --no-install-recommends  dnsutils snmp libmysqlclient18;\
 # install dependencies for nagios-snmp-plugins
  apt-get install -y -t wheezy-backports --no-install-recommends netbase;\
 # (unofficial) monitoring-plugins-cyconet
