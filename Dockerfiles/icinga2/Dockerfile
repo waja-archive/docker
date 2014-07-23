@@ -51,6 +51,9 @@ RUN apt-get install -y -t wheezy-backports icinga2-classicui icinga2;\
 # start init script to get environment initialised
 RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop
 
+# set permissions to enable command pipe
+RUN dpkg-statoverride --update --add nagios www-data 2710 /var/run/icinga2/cmd/icinga2.cmd
+
 # enable icinga feature
 RUN icinga2-enable-feature perfdata syslog
 
