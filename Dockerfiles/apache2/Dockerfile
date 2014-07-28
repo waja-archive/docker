@@ -13,6 +13,16 @@ MAINTAINER Jan Wagner "waja@cyconet.org"
 # Disable installation of Recommends
 RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norecommands
 
+# configure locale
+RUN dpkg-reconfigure locales && \
+ locale-gen C.UTF-8 && \
+ /usr/sbin/update-locale LANG=C.UTF-8
+ENV LC_ALL C.UTF-8
+
+# configure timezone
+RUN echo "Europe/Prague" > /etc/timezone && \
+ dpkg-reconfigure -f non-interactive tzdata	
+
 # Install sshd and supervisor
 RUN apt-get install --no-install-recommends -y openssh-server supervisor;\
  mkdir -p /var/run;\
