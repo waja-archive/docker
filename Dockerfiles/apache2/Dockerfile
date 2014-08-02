@@ -13,8 +13,13 @@ MAINTAINER Jan Wagner "waja@cyconet.org"
 # Disable installation of Recommends
 RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norecommands
 
+# update package list
+RUN apt-get update
+
 # configure locale
-RUN dpkg-reconfigure locales && \
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get install --no-install-recommends locales && \
+ dpkg-reconfigure locales && \
  locale-gen C.UTF-8 && \
  /usr/sbin/update-locale LANG=C.UTF-8
 ENV LC_ALL C.UTF-8
