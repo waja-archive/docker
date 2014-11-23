@@ -51,13 +51,13 @@ RUN apt-get update && apt-get install -y -t wheezy-backports-sloppy icinga2-clas
  rm -rf /var/lib/apt/lists/
 
 # start init script to get environment initialised
-RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop
-
-# set permissions to enable command pipe
-RUN dpkg-statoverride --update --add nagios www-data 2710 /var/run/icinga2/cmd/icinga2.cmd
-
-# enable icinga feature
-RUN icinga2 feature enable perfdata syslog
+RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop && \
+ # set permissions to enable command pipe
+ dpkg-statoverride --update --add nagios www-data 2710 /var/run/icinga2/cmd/icinga2.cmd && \
+ # enable icinga feature
+ icinga2 feature enable perfdata syslog && \
+ # use localhost as hostname for local node
+ sed -i "s#//const NodeName#const NodeName#" /etc/icinga2/constants.conf
 
 # Copy in supervisor config files
 ADD supervisord/ /etc/supervisor/conf.d/
