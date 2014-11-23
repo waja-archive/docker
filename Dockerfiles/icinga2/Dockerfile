@@ -15,6 +15,7 @@ MAINTAINER Jan Wagner "waja@cyconet.org"
 # configure needed package sources
 RUN echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon-wheezy.list;\
  echo "deb http://cdn.debian.net/debian/ wheezy-backports main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports.list;\
+ echo "deb http://cdn.debian.net/debian/  wheezy-backports-sloppy main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports-sloppy-cyconet.list;\
  apt-get update && apt-get install --no-install-recommends -y wget;\
  wget -O - http://debmon.org/debmon/repo.key | apt-key add -;\
  apt-get update;\
@@ -33,7 +34,7 @@ RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB
  echo "icinga2-classicui icinga2-classicui/adminpassword-repeat password $PREDEF_WEB_PW" | debconf-set-selections
 
 # package installation
-RUN apt-get update && apt-get install -y -t wheezy-backports icinga2-classicui icinga2;\
+RUN apt-get update && apt-get install -y -t wheezy-backports-sloppy icinga2-classicui icinga2;\
 # nagios plugins from debian
  apt-get install -y -t wheezy-backports nagios-plugins-basic;\
  apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard nagios-snmp-plugins nagios-plugins-contrib;\
