@@ -57,7 +57,7 @@ RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop
 RUN dpkg-statoverride --update --add nagios www-data 2710 /var/run/icinga2/cmd/icinga2.cmd
 
 # enable icinga feature
-RUN icinga2-enable-feature perfdata syslog
+RUN icinga2 feature enable perfdata syslog
 
 # Copy in supervisor config files
 ADD supervisord/ /etc/supervisor/conf.d/
