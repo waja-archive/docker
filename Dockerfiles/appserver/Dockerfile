@@ -38,6 +38,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y openssh-server 
  apt-get update && apt-get install --no-install-recommends -y appserver-dist && \
 # install missing dependency
  apt-get install --no-install-recommends -y libfreetype6 && \
+# bind everything to 0.0.0.0 (FIXME)
+ sed -i 's#                        <param name="address" type="string">127.0.0.1</param>#                        <param name="address" type="string">0.0.0.0</param>#' /opt/appserver/etc/appserver/appserver.xml && \
  rm -rf /var/lib/apt/lists/
 
 # set root password
