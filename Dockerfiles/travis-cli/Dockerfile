@@ -27,6 +27,7 @@ ENV LC_ALL C.UTF-8
 RUN apt-get update && apt-get install -y rubygems ruby1.9.1-dev;\
  rm -rf /var/lib/apt/lists/ && \
 # Install travis client
+ echo "Starting installing travis cli." && \
  gem install travis --no-rdoc --no-ri && \
  travis version
 
