@@ -1,3 +1,7 @@
+To build the icinga2 container, run:
+
+# docker build -t waja/debian_icinga2:wheezy .
+
 To start the icinga2 container, run:
 
 # docker run -i -rm -t waja/debian_icinga2:wheezy

@@ -5,5 +5,3 @@ To build the apache2 container, run:
 To start the apache2 container, run:
 
 # docker run -i -rm -t waja/debian_apache2:wheezy
-
-
