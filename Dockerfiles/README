@@ -2,7 +2,7 @@ Dockerfiles (http://docs.docker.io/en/latest/reference/builder/) for creating Do
 
 To generate the base image 'waja/debian:latest', just run:
 
-# mkimage-debootstrap.sh waja/debian wheezy http://cdn.debian.net/debian/
+# mkimage-debootstrap.sh waja/debian wheezy http://httpredir.debian.org/debian/
 
 If you want to build the apache2 container for example, run:
 

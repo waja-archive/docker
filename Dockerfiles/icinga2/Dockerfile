@@ -14,7 +14,7 @@ MAINTAINER Jan Wagner "waja@cyconet.org"
 
 # configure needed package sources
 RUN echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon-wheezy.list;\
- echo "deb http://cdn.debian.net/debian/ wheezy-backports main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports.list;\
+ echo "deb http://httpredir.debian.org/debian/ wheezy-backports main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports.list;\
  echo "deb http://ftp.cyconet.org/debian/  wheezy-backports-sloppy main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports-sloppy-cyconet.list;\
  apt-get update && apt-get install --no-install-recommends -y wget;\
  wget -O - http://debmon.org/debmon/repo.key | apt-key add -;\
