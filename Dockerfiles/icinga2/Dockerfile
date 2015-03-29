@@ -37,8 +37,8 @@ RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB
 # package installation
 RUN apt-get update && apt-get install -y icinga2-classicui icinga2;\
 # nagios plugins from debian
- apt-get install -y -t wheezy-backports nagios-plugins-basic;\
- apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard nagios-snmp-plugins nagios-plugins-contrib;\
+ apt-get install -y -t wheezy-backports monitoring-plugins-basic monitoring-plugins-common;\
+ apt-get install -y -t wheezy-backports --no-install-recommends monitoring-plugins-standard nagios-snmp-plugins nagios-plugins-contrib;\
 # install dependencies for nagios-plugins-standard
  apt-get install -y --no-install-recommends dnsutils snmp libmysqlclient18;\
 # install dependencies for nagios-snmp-plugins
