@@ -51,6 +51,9 @@ RUN apt-get update && apt-get install -y icinga2-classicui icinga2;\
  apt-get install -y --force-yes --no-install-recommends monitoring-plugins-cyconet  && \
  rm -rf /var/lib/apt/lists/
 
+# temp fixing https://dev.icinga.org/issues/8892
+RUN if [ "$(dpkg -l | grep icinga2-common | awk {'print $3'} | awk -F'-' {'print $1'})" = "2.3.3" ]; then sed -i "s/02:00-03:00/02:00-04:00/" /etc/icinga2/conf.d/services.conf; fi
+
 # start init script to get environment initialised
 RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop && \
  # set permissions to enable command pipe
