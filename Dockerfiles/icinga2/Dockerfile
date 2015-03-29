@@ -35,7 +35,7 @@ RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB
  echo "icinga2-classicui icinga2-classicui/adminpassword-repeat password $PREDEF_WEB_PW" | debconf-set-selections
 
 # package installation
-RUN apt-get update && apt-get install -y -t wheezy-backports-sloppy icinga2-classicui icinga2;\
+RUN apt-get update && apt-get install -y icinga2-classicui icinga2;\
 # nagios plugins from debian
  apt-get install -y -t wheezy-backports nagios-plugins-basic;\
  apt-get install -y -t wheezy-backports --no-install-recommends nagios-plugins-standard nagios-snmp-plugins nagios-plugins-contrib;\
