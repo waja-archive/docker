@@ -1,0 +1,7 @@
+To build the appserver container, run:
+
+# docker build -t waja/debian_appserver:wheezy .
+
+To start the appserver container, run:
+
+# docker run -i -rm -t waja/debian_appserver:wheezy
