@@ -25,7 +25,7 @@ RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norec
 
 ENV LC_ALL C.UTF-8
 
-# Install dependencies for building httpdiff 
+# Install dependencies for building ssllabs-scan 
 RUN apt-get update && \
  apt-get install -y --no-install-recommends git golang-go ca-certificates;\
  rm -rf /var/lib/apt/lists/ && \
