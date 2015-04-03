@@ -30,11 +30,11 @@ RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norec
 
 ENV LC_ALL C.UTF-8
 
-# Install dependencies for building httpdiff 
+# Install dependencies for building testssl.sh 
 RUN apt-get update && \
  apt-get install -y --no-install-recommends git ca-certificates openssl bash;\
  rm -rf /var/lib/apt/lists/ && \
-# Install httpdiff client
+# Install testssl.sh client
  echo "Starting installing testssl.sh." && \
  git clone -b ${BRANCH} https://github.com/drwetter/testssl.sh.git 
 
