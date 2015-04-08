@@ -12,6 +12,9 @@ MAINTAINER Jan Wagner "waja@cyconet.org"
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Download archive key
+ADD http://ftp.cyconet.org/debian/sources.list.d/wheezy-backports.list /etc/apt/sources.list.d/wheezy-backports.list
+
 # Disable installation of Recommends
 RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norecommands && \
 # configure locale
@@ -27,14 +30,12 @@ RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norec
 ENV LC_ALL C.UTF-8
 
 # Install sshd and supervisor
-RUN apt-get update && apt-get install --no-install-recommends -y openssh-server supervisor wget;\
+RUN apt-get update && apt-get install --no-install-recommends -y openssh-server supervisor;\
  rm -rf /var/lib/apt/lists/ && \
  mkdir -p /var/run;\
  mkdir -p /var/run/sshd;\
  mkdir -p /var/log/supervisor && \
 # Install nodejs
- wget http://ftp.cyconet.org/debian/sources.list.d/wheezy-backports.list \
-	  -O /etc/apt/sources.list.d/wheezy-backports.list && \
  apt-get update && apt-get install --no-install-recommends -y nodejs && \
  rm -rf /var/lib/apt/lists/
 

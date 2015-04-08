@@ -12,6 +12,9 @@ MAINTAINER Jan Wagner "waja@cyconet.org"
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Download archive key
+ADD http://deb.appserver.io/appserver.gpg /tmp/appserver.gpg
+
 # Disable installation of Recommends
 RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norecommands && \
 # configure locale
@@ -27,14 +30,14 @@ RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norec
 ENV LC_ALL C.UTF-8
 
 # Install sshd and supervisor
-RUN apt-get update && apt-get install --no-install-recommends -y openssh-server supervisor wget;\
+RUN apt-get update && apt-get install --no-install-recommends -y openssh-server supervisor;\
  rm -rf /var/lib/apt/lists/ && \
  mkdir -p /var/run;\
  mkdir -p /var/run/sshd;\
  mkdir -p /var/log/supervisor && \
 # Install appserver
  echo "deb http://deb.appserver.io/ wheezy main" > /etc/apt/sources.list.d/appserver.list && \
- wget http://deb.appserver.io/appserver.gpg -O - | apt-key add -  && \
+ apt-key add /tmp/appserver.gpg && rm /tmp/appserver.gpg  && \
  apt-get update && apt-get install --no-install-recommends -y appserver-dist && \
 # install missing dependency
  apt-get install --no-install-recommends -y libfreetype6 && \

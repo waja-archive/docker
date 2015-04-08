@@ -12,13 +12,16 @@ ENV PREDEF_WEB_PW f00b4r
 # Dockerfile Maintainer
 MAINTAINER Jan Wagner "waja@cyconet.org"
 
+# Download archive key
+ADD http://debmon.org/debmon/repo.key /tmp/debmon_repo.key
+ADD http://ftp.cyconet.org/debian/repo.key /tmp/cyconet_repo.key
+
 # configure needed package sources
 RUN echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon-wheezy.list;\
  echo "deb http://httpredir.debian.org/debian/ wheezy-backports main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports.list;\
  echo "deb http://ftp.cyconet.org/debian/  wheezy-backports-sloppy main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports-sloppy-cyconet.list;\
- apt-get update && apt-get install --no-install-recommends -y wget;\
- wget -O - http://debmon.org/debmon/repo.key | apt-key add -;\
- wget -O - http://ftp.cyconet.org/debian/repo.key 2>/dev/null | apt-key add -;\
+ apt-key add /tmp/debmon_repo.key && apt-key add /tmp/cyconet_repo.key && \
+ rm /tmp/debmon_repo.key /tmp/cyconet_repo.key && \
  apt-get update;\
  apt-get -y upgrade && \
  rm -rf /var/lib/apt/lists/
