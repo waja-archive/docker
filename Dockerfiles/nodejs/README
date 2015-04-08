@@ -1,7 +1,0 @@
-To build the nodejs container, run:
-
-# docker build -t waja/debian_nodejs:wheezy .
-
-To start the nodejs container, run:
-
-# docker run -i -rm -t waja/debian_nodejs:wheezy
