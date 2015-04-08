@@ -4,7 +4,7 @@
 # For documentation about icinga2, see http://docs.icinga.org/icinga2/snapshot
 #
 # Pull base image
-FROM waja/debian_apache2:wheezy
+FROM waja/apache2
 
 # Predefine ENV
 ENV PREDEF_WEB_PW f00b4r
