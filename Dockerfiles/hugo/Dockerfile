@@ -36,5 +36,7 @@ RUN apt-get update && \
  dpkg -i /tmp/hugo_${HUGO_VERSION}_amd64.deb && \
  rm /tmp/hugo_${HUGO_VERSION}_amd64.deb
 
+EXPOSE 1313
+
 ENTRYPOINT ["hugo"]
 CMD ["-w", "-s", "/srv/blog_src", "-d", "/srv/blog_output"]
