@@ -29,7 +29,7 @@ ENV LC_ALL C.UTF-8
 
 # Install dependencies for building Pelican 
 RUN apt-get update && \
- apt-get install -y --no-install-recommends make gcc python-dev python-pip;\
+ apt-get install -y --no-install-recommends make gcc python-dev python-pip openssh-client rsync;\
  rm -rf /var/lib/apt/lists/ && \
 # Installing Pelican
  pip install pelican Markdown && \
