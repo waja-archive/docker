@@ -39,4 +39,4 @@ RUN apt-get update && \
 EXPOSE 1313
 
 ENTRYPOINT ["hugo"]
-CMD ["-w", "-D", "-s", "/srv/blog_src", "-d", "/srv/blog_output"]
+CMD ["server" "-w", "-D", "-s", "/srv/blog_src", "-d", "/srv/blog_output"]
