@@ -1,0 +1,3 @@
+[submodule "Dockerfiles/mongo"]
+	path = Dockerfiles/mongo
+	url = https://github.com/docker-library/mongo.git
