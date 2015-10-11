@@ -44,8 +44,8 @@ RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop && \
  # set permissions to enable command pipe
  dpkg-statoverride --update --add nagios www-data 2710 /var/run/icinga2/cmd/icinga2.cmd
 
-# Copy in supervisor config files
-ADD supervisord/ /etc/supervisor/conf.d/
+## Copy in supervisor config files
+#ADD supervisord/ /etc/supervisor/conf.d/
 
 # start supervisord to maintain system services
 CMD ["/usr/bin/supervisord"]
