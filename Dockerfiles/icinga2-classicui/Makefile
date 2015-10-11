@@ -1,5 +1,5 @@
 IMAGE_NAME := waja/icinga2-classicui
-ICINGA_CONF_EXPORT_PATH := $(pwd)/conf.d
+ICINGA_CONF_EXPORT_PATH := $(shell pwd)/conf.d
 
 build:
 	docker build --rm -t $(IMAGE_NAME) .
