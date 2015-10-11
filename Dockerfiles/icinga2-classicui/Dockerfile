@@ -39,6 +39,11 @@ RUN echo "icinga-common icinga/check_external_commands boolean true" | debconf-s
 RUN apt-get update && apt-get install -y icinga2-classicui;\
  rm -rf /var/lib/apt/lists/
 
+# start init script to get environment initialised
+RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop && \
+ # set permissions to enable command pipe
+ dpkg-statoverride --update --add nagios www-data 2710 /var/run/icinga2/cmd/icinga2.cmd
+
 # Copy in supervisor config files
 ADD supervisord/ /etc/supervisor/conf.d/
 
