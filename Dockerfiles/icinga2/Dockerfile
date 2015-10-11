@@ -17,9 +17,8 @@ ADD http://debmon.org/debmon/repo.key /tmp/debmon_repo.key
 ADD http://ftp.cyconet.org/debian/repo.key /tmp/cyconet_repo.key
 
 # configure needed package sources
-RUN echo "deb http://debmon.org/debmon debmon-wheezy main" > /etc/apt/sources.list.d/debmon-wheezy.list;\
- echo "deb http://httpredir.debian.org/debian/ wheezy-backports main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports.list;\
- echo "deb http://ftp.cyconet.org/debian/  wheezy-backports-sloppy main non-free contrib" > /etc/apt/sources.list.d/wheezy-backports-sloppy-cyconet.list;\
+RUN echo "deb http://debmon.org/debmon debmon-jessie main" > /etc/apt/sources.list.d/debmon-jessie.list;\
+ echo "deb http://httpredir.debian.org/debian/ jessie-backports main non-free contrib" > /etc/apt/sources.list.d/jessie-backports.list;\
  apt-key add /tmp/debmon_repo.key && apt-key add /tmp/cyconet_repo.key && \
  rm /tmp/debmon_repo.key /tmp/cyconet_repo.key && \
  apt-get update;\
@@ -40,8 +39,8 @@ RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB
 # package installation
 RUN apt-get update && apt-get install -y icinga2-classicui icinga2;\
 # nagios plugins from debian
- apt-get install -y -t wheezy-backports monitoring-plugins-basic monitoring-plugins-common;\
- apt-get install -y -t wheezy-backports --no-install-recommends monitoring-plugins-standard nagios-snmp-plugins nagios-plugins-contrib;\
+ apt-get install -y monitoring-plugins-basic monitoring-plugins-common;\
+ apt-get install -y --no-install-recommends monitoring-plugins-standard nagios-snmp-plugins nagios-plugins-contrib;\
 # install dependencies for nagios-plugins-standard
  apt-get install -y --no-install-recommends dnsutils snmp libmysqlclient18;\
 # install dependencies for nagios-snmp-plugins

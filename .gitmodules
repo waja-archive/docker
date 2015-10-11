@@ -1,3 +1,6 @@
 [submodule "Dockerfiles/mongo"]
 	path = Dockerfiles/mongo
 	url = https://github.com/docker-library/mongo.git
+[submodule "Dockerfiles/m202docker"]
+	path = Dockerfiles/m202docker
+	url = https://github.com/mwmahlberg/m202docker.git
