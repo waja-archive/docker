@@ -25,19 +25,19 @@ RUN echo "deb http://debmon.org/debmon debmon-jessie main" > /etc/apt/sources.li
  apt-get -y upgrade && \
  rm -rf /var/lib/apt/lists/
 
-# prefine debconf questions
-# enable external commands
-RUN echo "icinga-common icinga/check_external_commands boolean true" | debconf-set-selections
-
-# set icinga cgi admin password
-RUN echo "icinga-cgi icinga/adminpassword password $PREDEF_WEB_PW" | debconf-set-selections;\
- echo "icinga-cgi icinga/adminpassword-repeat password $PREDEF_WEB_PW" | debconf-set-selections
-# set icinga classic ui admin password
-RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB_PW" | debconf-set-selections;\
- echo "icinga2-classicui icinga2-classicui/adminpassword-repeat password $PREDEF_WEB_PW" | debconf-set-selections
+## prefine debconf questions
+## enable external commands
+#RUN echo "icinga-common icinga/check_external_commands boolean true" | debconf-set-selections
+#
+## set icinga cgi admin password
+#RUN echo "icinga-cgi icinga/adminpassword password $PREDEF_WEB_PW" | debconf-set-selections;\
+# echo "icinga-cgi icinga/adminpassword-repeat password $PREDEF_WEB_PW" | debconf-set-selections
+## set icinga classic ui admin password
+#RUN echo "icinga2-classicui icinga2-classicui/adminpassword password $PREDEF_WEB_PW" | debconf-set-selections;\
+# echo "icinga2-classicui icinga2-classicui/adminpassword-repeat password $PREDEF_WEB_PW" | debconf-set-selections
 
 # package installation
-RUN apt-get update && apt-get install -y icinga2-classicui icinga2;\
+RUN apt-get update && apt-get install -y icinga2;\
 # nagios plugins from debian
  apt-get install -y monitoring-plugins-basic monitoring-plugins-common;\
  apt-get install -y --no-install-recommends monitoring-plugins-standard nagios-snmp-plugins nagios-plugins-contrib;\
