@@ -45,3 +45,8 @@ RUN /etc/init.d/icinga2 start && /etc/init.d/icinga2 stop && \
 
 # start supervisord to maintain system services
 CMD ["/usr/bin/supervisord"]
+
+# see also:
+# https://errorin10.wordpress.com/2015/10/16/install-icinga2-and-icinga2web-in-10min/
+# www.monitoring-portal.org/wbb/index.php?page=Thread&postID=205604#post205604
+# http://linoxide.com/monitoring-2/setup-icinga-web-2-centos7-ubuntu-15/
