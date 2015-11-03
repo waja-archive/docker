@@ -30,11 +30,14 @@ RUN echo 'Aptitude::Recommends-Important "False";' > /etc/apt/apt.conf.d/10norec
 ENV LC_ALL C.UTF-8
 
 # Install sshd and supervisor
-RUN apt-get update && apt-get install --no-install-recommends -y openssh-server supervisor;\
+RUN apt-get update && apt-get install --no-install-recommends -y openssh-server supervisor wget;\
  rm -rf /var/lib/apt/lists/ && \
  mkdir -p /var/run;\
  mkdir -p /var/run/sshd;\
  mkdir -p /var/log/supervisor && \
+ wget http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg8-empty/libjpeg8_8c-2ubuntu8_amd64.deb -O /tmp/libjpeg8_8c-2ubuntu8_amd64.deb; \
+ wget http://archive.ubuntu.com/ubuntu/pool/main/libj/libjpeg-turbo/libjpeg-turbo8_1.3.0-0ubuntu2_amd64.deb -O /tmp/libjpeg-turbo8_1.3.0-0ubuntu2_amd64.deb; \
+ dpkg -i /tmp/libjpeg-turbo8_1.3.0-0ubuntu2_amd64.deb /tmp/libjpeg8_8c-2ubuntu8_amd64.deb; \
 # Install appserver
  echo "deb http://deb.appserver.io/ wheezy main" > /etc/apt/sources.list.d/appserver.list && \
  apt-key add /tmp/appserver.gpg && rm /tmp/appserver.gpg  && \
