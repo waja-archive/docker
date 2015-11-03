@@ -31,6 +31,7 @@ ENV LC_ALL C.UTF-8
 
 # Install sshd and supervisor
 RUN apt-get update && apt-get install --no-install-recommends -y openssh-server supervisor wget;\
+ sed -i "s/^PermitRootLogin .*/PermitRootLogin yes/" /etc/ssh/sshd_config;\
  rm -rf /var/lib/apt/lists/ && \
  mkdir -p /var/run;\
  mkdir -p /var/run/sshd;\
