@@ -17,6 +17,10 @@ if [ ! -d "$JINGO_REPOSITORY/.git" ]; then
   popd
 fi
 
+if [ ! -f /opt/jingo/config.yaml ]; then
+  /opt/jingo/jingo -s > /opt/jingo/config.yaml
+fi
+
 # sed -ri "s#^  title:.*#  title: $JINGO_APPLICATION_TITLE#" /opt/jingo/config.yaml
 # sed -ri "s#^  repository:.*#  repository: \'$JINGO_REPOSITORY\'#" /opt/jingo/config.yaml
 # sed -ri "s#^  hostname:.*#  hostname: $JINGO_HOSTNAME#" /opt/jingo/config.yaml
