@@ -17,10 +17,10 @@ if [ ! -d "$JINGO_REPOSITORY/.git" ]; then
   popd
 fi
 
-sed -ri "s#^  title:.*#  title: $JINGO_APPLICATION_TITLE#" /opt/jingo/config.yaml
-sed -ri "s#^  repository:.*#  repository: \'$JINGO_REPOSITORY\'#" /opt/jingo/config.yaml
-sed -ri "s#^  hostname:.*#  hostname: $JINGO_HOSTNAME#" /opt/jingo/config.yaml
-sed -ri "s#^  port:.*#  port: $JINGO_POST#" /opt/jingo/config.yaml
+# sed -ri "s#^  title:.*#  title: $JINGO_APPLICATION_TITLE#" /opt/jingo/config.yaml
+# sed -ri "s#^  repository:.*#  repository: \'$JINGO_REPOSITORY\'#" /opt/jingo/config.yaml
+# sed -ri "s#^  hostname:.*#  hostname: $JINGO_HOSTNAME#" /opt/jingo/config.yaml
+# sed -ri "s#^  port:.*#  port: $JINGO_POST#" /opt/jingo/config.yaml
 
 cd /opt/jingo
 npm start
