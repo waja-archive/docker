@@ -1,5 +1,8 @@
 FROM mhart/alpine-node:latest
-WORKDIR /opt/jingo
+
+# Dockerfile Maintainer
+MAINTAINER Jan Wagner "waja@cyconet.org"
+
 # Install dependencies
 RUN apk --update add --virtual build-dependencies git ca-certificates && \
   # Pull jingo source
@@ -14,5 +17,7 @@ RUN apk --update add --virtual build-dependencies git ca-certificates && \
   sed -ri 's#"./jingo -c config.yaml"#"./jingo -c config/config.yaml"#' /opt/jingo/package.json && \
   # Create configuration dir
   mkdir -p /opt/jingo/config
+
+WORKDIR /opt/jingo
 ADD start.sh /opt/jingo/start.sh
 CMD /bin/sh /opt/jingo/start.sh
