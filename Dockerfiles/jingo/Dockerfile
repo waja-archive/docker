@@ -5,4 +5,4 @@ RUN apk --update add --virtual build-dependencies git ca-certificates && \
   LATEST_TAG=$(git tag -l 'v*.[0-9]' --sort='v:refname'| tail -1); git checkout $LATEST_TAG -b $LATEST_TAG && \
   git config --global user.name "Jingo Wiki" && git config --global user.email "everyone@jingo" && npm install
 ADD start.sh /opt/jingo/start.sh
-CMD /bin/bash /opt/jingo/start.sh
+CMD /bin/sh /opt/jingo/start.sh
