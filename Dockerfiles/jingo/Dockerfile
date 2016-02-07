@@ -9,6 +9,10 @@ RUN apk --update add --virtual build-dependencies git ca-certificates && \
   # Set global git config
   git config --global user.name "Jingo Wiki" && git config --global user.email "everyone@jingo" && \
   # Install npm depenencies
-  npm install
+  npm install && \
+  # Adjust configuration path in package.json script
+  sed -ri 's#"./jingo -c config.yaml"#"./jingo -c config/config.yaml"#' /opt/jingo/package.json && \
+  # Create configuration dir
+  mkdir -p /opt/jingo/config
 ADD start.sh /opt/jingo/start.sh
 CMD /bin/sh /opt/jingo/start.sh
