@@ -1,18 +1,9 @@
-Builds an docker image with the [ssllabs-scan](https://github.com/ssllabs/ssllabs-scan)  ready to run.
+## Docker Image
 
-Running
--------
+There is a well maintained Image by [Paul Morgan](https://github.com/jumanjiman).
 
-- run the docker container with:
+You can grab the image via [Docker Hub](https://hub.docker.com/r/jumanjiman/ssllabs-scan/).
 
-        docker run --rm -it waja/ssllabs-scan --help 
+## Repository
 
-Building
---------
-
-    make build
-
-Get a shell in a running container
-----------------------------------
-
-    make shell
+The repository can be found [here](https://github.com/jumanjihouse/docker-ssllabs-scan).
