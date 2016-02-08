@@ -1,7 +1,7 @@
-Pulled from https://github.com/tianon/dockerfiles/tree/master/speedtest
+## Docker Image
 
-Ever wanted to speedtest a server, but didn't want to do funky tunnelling so you could hit up good ol' speedtest.net?  WORRY NO MORE.
+You can grab the image via [Docker Hub](https://hub.docker.com/r/waja/speedtest/).
 
-    docker run --rm --net=host waja/speedtest
+## Repository
 
-We don't actually _require_ `--net=host`, but if we're wanting to test native performance (or use `--source some-specific-host-IP`) then we want direct access to the relevant connections without any overhead.
+The new repository can be found [here](https://github.com/Cyconet/docker-speedtest).
