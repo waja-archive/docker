@@ -1,18 +1,1 @@
-Builds an docker image with the [node.js](http://nodejs.org)  ready to run.
-
-Running
--------
-
-- run the docker container with:
-
-        docker run --rm -it waja/nodejs --help 
-
-Building
---------
-
-    make build
-
-Get a shell in a running container
-----------------------------------
-
-    make shell
+I suggest using [mhart/alpine-node](https://hub.docker.com/r/mhart/alpine-node/) if you need using a [node.js](http://nodejs.org) container.
