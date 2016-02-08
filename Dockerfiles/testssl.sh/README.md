@@ -1,18 +1,9 @@
-Builds an docker image with the [testssl.sh](http://testssl.sh/)  ready to run.
+## Docker Image
 
-Running
--------
+There is a well maintained Image by [Paul Morgan](https://github.com/jumanjiman).
 
-- run the docker container with:
+You can grab the image via [quay.io](https://quay.io/repository/jumanjiman/testssl).
 
-        docker run --rm -it waja/testssl.sh --help 
+## Repository
 
-Building
---------
-
-    make build
-
-Get a shell in a running container
-----------------------------------
-
-    make shell
+The repository can be found [here](https://github.com/jumanjihouse/docker-testssl).
