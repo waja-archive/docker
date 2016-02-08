@@ -1,18 +1,7 @@
-Builds an docker image with the [httpdiff](https://github.com/jgrahamc/httpdiff)  ready to run.
+## Docker Image
 
-Running
--------
+You can grab the image via [Docker Hub](https://hub.docker.com/r/waja/httpdiff/).
 
-- run the docker container with:
+## Repository
 
-        docker run --rm -it waja/httpdiff-cli --help 
-
-Building
---------
-
-    make build
-
-Get a shell in a running container
-----------------------------------
-
-    make shell
+The new repository can be found [here](https://github.com/Cyconet/docker-httpdiff).
